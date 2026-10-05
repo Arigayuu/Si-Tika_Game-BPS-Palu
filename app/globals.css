@@ -6,7 +6,7 @@ button { font:inherit; }
 .game-shell { min-height:100svh; overflow:hidden; background: radial-gradient(circle at 12% 6%, #e7f6ec 0 15%, transparent 38%), radial-gradient(circle at 92% 92%, #fff0df 0 12%, transparent 36%), var(--cream); }
 .page { width:min(100% - 32px, 760px); min-height:100svh; margin:auto; padding:22px 0 32px; display:flex; flex-direction:column; }
 .brand { display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans'; font-size:12px; font-weight:800; letter-spacing:.04em; color:var(--blue); }
-.brand-mark { display:grid; place-items:center; width:38px; height:38px; border:2px solid var(--blue); border-radius:50%; background:white; font-size:9px; line-height:1; text-align:center; }
+.brand-mark { position:relative; display:grid; place-items:center; width:38px; height:38px; overflow:hidden; border:2px solid var(--blue); border-radius:50%; background:white; font-size:9px; line-height:1; text-align:center; } .brand-mark img { width:100%; height:100%; object-fit:contain; } .brand-mark img + span { position:absolute; }
 .eyebrow { color:var(--orange); text-transform:uppercase; letter-spacing:.16em; font-weight:800; font-size:11px; }
 .heading { margin:9px 0 8px; font-family:'Plus Jakarta Sans'; font-size:clamp(30px, 8vw, 54px); line-height:1.06; letter-spacing:-.045em; }
 .subtle { color:var(--muted); line-height:1.6; }
@@ -26,9 +26,8 @@ button { font:inherit; }
 .feet { position:absolute; left:35px; bottom:-13px; width:35px; height:15px; border-bottom:5px solid #e1a035; border-radius:50%; } .feet:after { content:""; position:absolute; left:38px; bottom:-5px; width:35px; border-bottom:5px solid #e1a035; border-radius:50%; }
 .hero h1 { margin:0; }
 .hero .subtle { max-width:340px; margin:10px 0 25px; }
-.levels { display:flex; flex-direction:column; gap:14px; margin:30px 0; }
-.level-card { display:flex; align-items:center; gap:14px; width:100%; padding:14px; border:1px solid var(--line); border-radius:20px; background:white; text-align:left; box-shadow:0 7px 22px #244b2410; }
-.level-card:not(:disabled) { cursor:pointer; } .level-card:disabled { opacity:.55; cursor:not-allowed; }
+.journey { position:relative; display:flex; flex-direction:column; gap:18px; margin:30px 0; padding:4px 0 4px 12px; } .journey::before { content:""; position:absolute; top:14px; bottom:14px; left:35px; width:3px; background-image:linear-gradient(to bottom, var(--orange) 45%, transparent 45%); background-size:3px 14px; opacity:.7; } .level-card { position:relative; z-index:1; display:flex; align-items:center; gap:14px; width:100%; padding:14px; border:1px solid var(--line); border-radius:20px; background:white; text-align:left; box-shadow:0 7px 22px #244b2410; } .level-card.offset { transform:translateX(18px); width:calc(100% - 18px); } .level-card.offset:hover { transform:translate(18px, -2px); } .level-card:not(.offset):hover { transform:translateY(-2px); }
+.level-card:not(:disabled) { cursor:pointer; } .level-card:disabled { opacity:.55; cursor:not-allowed; } .start-label { color:var(--orange); font-weight:800; }
 .level-number { display:grid; place-items:center; width:48px; height:48px; flex:none; border-radius:15px; background:#e8f4ed; color:var(--green); font-family:'Plus Jakarta Sans'; font-weight:800; }
 .level-card.current .level-number { background:var(--green); color:white; } .level-card.done .level-number { background:#eaf1fb; color:var(--blue); }
 .level-copy { flex:1; } .level-copy strong { display:block; font-family:'Plus Jakarta Sans'; } .level-copy span { display:block; margin-top:3px; color:var(--muted); font-size:13px; }
