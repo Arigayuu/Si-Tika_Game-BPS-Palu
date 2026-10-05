@@ -18,5 +18,8 @@
     "react-dom": "latest",
     "typescript": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8"
+  }
 }

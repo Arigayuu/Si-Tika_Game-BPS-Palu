@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useState } from "react"
 import { ArrowLeft, Check, LockKeyhole, Heart, Trophy, RotateCcw } from "lucide-react"
 
 type Question = { question: string; options: string[]; answer: number }
@@ -25,15 +25,27 @@ export default function Home() {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [lives, setLives] = useState(3)
-  const [completed, setCompleted] = useState<number[]>([])
+  const [completed, setCompleted] = useState<number[]>(() => {
+    if (typeof window === "undefined") return []
+    try {
+      return JSON.parse(window.localStorage.getItem("si-tika-progress") ?? "{}").completed ?? []
+    } catch {
+      return []
+    }
+  })
   const [selected, setSelected] = useState<number | null>(null)
   const [feedback, setFeedback] = useState("")
-  const [bestScore, setBestScore] = useState(0)
-
-  useEffect(() => { const saved = window.localStorage.getItem("si-tika-progress"); if (saved) { try { const data = JSON.parse(saved); setCompleted(data.completed ?? []); setBestScore(data.bestScore ?? 0) } catch {} } }, [])
+  const [bestScore, setBestScore] = useState(() => {
+    if (typeof window === "undefined") return 0
+    try {
+      return JSON.parse(window.localStorage.getItem("si-tika-progress") ?? "{}").bestScore ?? 0
+    } catch {
+      return 0
+    }
+  })
   const level = levels[levelId - 1]
   const question = level.questions[questionIndex]
-  const unlocked = Math.max(1, ...completed, 0) + 1
+  const unlocked = Math.min(levels.length, Math.max(1, ...completed, 0) + 1)
   const saveProgress = (nextCompleted: number[], nextScore: number) => { window.localStorage.setItem("si-tika-progress", JSON.stringify({ completed:nextCompleted, bestScore:Math.max(bestScore, nextScore) })); setBestScore(Math.max(bestScore, nextScore)) }
   const startLevel = (id: number) => { setLevelId(id); setQuestionIndex(0); setScore(0); setLives(3); setSelected(null); setFeedback(""); setScreen("quiz") }
   const answer = (index: number) => { if (selected !== null) return; setSelected(index); const correct = index === question.answer; if (correct) { setScore(s => s + 1); setFeedback("✓ Benar! Mantap!") } else { setLives(l => l - 1); setFeedback("✕ Belum tepat, tetap semangat!") } }
