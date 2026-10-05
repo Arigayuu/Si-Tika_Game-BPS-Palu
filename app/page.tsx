@@ -17,7 +17,7 @@ const makeQuestions = (topic: string): Question[] => [
 const levels: Level[] = ["Pemanasan", "Mulai Seru", "Tantangan", "Jago BPS", "Master Si Tika"].map((title, index) => ({ id:index + 1, title, subtitle:["Kenalan dengan data", "Makin paham", "Uji ketelitianmu", "Hampir juara", "Buktikan jagoanmu"][index], questions:makeQuestions(["data di sekitar kita", "statistik sederhana", "fakta Kota Palu", "dunia statistik", "pengetahuan BPS"][index]) }))
 
 function Mascot() { return <div className="mascot" aria-label="Maskot Si Tika"><div className="bird"><i className="eye left"/><i className="eye right"/><i className="beak"/><i className="feet"/></div></div> }
-function Brand() { return <div className="brand"><span className="brand-mark"><img src="/logo-ps.png" alt="Logo BPS Kota Palu" onError={(event) => { event.currentTarget.style.display = "none" }} /><span>BPS<br/>PALU</span></span><span>BADAN PUSAT STATISTIK<br/>KOTA PALU</span></div> }
+function Brand() { return <div className="brand"><span className="brand-mark"><img src="/logo-bps-palu.png" alt="Logo BPS Kota Palu" onError={(event) => { event.currentTarget.style.display = "none" }} /><span>BPS<br/>PALU</span></span><span>BADAN PUSAT STATISTIK<br/>KOTA PALU</span></div> }
 
 export default function Home() {
   const [screen, setScreen] = useState<"home"|"levels"|"quiz"|"result">("home")
