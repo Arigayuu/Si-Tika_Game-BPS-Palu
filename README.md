@@ -18,21 +18,17 @@ Game dirancang untuk dijalankan dari satu komputer server di jaringan lokal kant
 ### Komputer server Windows
 
 1. Buka Command Prompt pada folder project.
-2. Jalankan build production setelah source berubah:
+2. Jalankan server development:
 
    ```bat
-   npm run build
+   npm run dev
    ```
 
-3. Jalankan server LAN dengan `start-lan.bat`, atau gunakan:
-
-   ```bat
-   npm run preview:lan
-   ```
-
+3. Vite akan menampilkan alamat **Network** secara otomatis, misalnya `http://192.168.1.10:5173`. Gunakan alamat tersebut pada HP atau laptop.
 4. Biarkan jendela Command Prompt tetap terbuka selama game digunakan.
-5. Jalankan `ipconfig` dan catat **IPv4 Address** adapter Wi-Fi komputer server.
-6. Server menggunakan port TCP `4173` dan mendengarkan pada interface LAN (`0.0.0.0`).
+5. Setelah mengubah source code, simpan file dan browser akan memperbarui game otomatis melalui hot reload.
+
+Server menggunakan port TCP `5173` dan mendengarkan pada semua interface jaringan (`0.0.0.0`), sehingga dapat diakses perangkat lain pada Wi-Fi yang sama. Tidak perlu menjalankan `npm run build` atau `start-lan.bat` untuk penggunaan development di jaringan lokal.
 
 ### Smartphone pemain
 
@@ -62,4 +58,4 @@ Buka game dari sedikitnya dua perangkat, mulai level pada keduanya, lalu pastika
 
 ## Menghentikan server
 
-Tekan `Ctrl+C` pada jendela Command Prompt yang menjalankan server. Script dan konfigurasi LAN terkait tersedia pada `start-lan.bat` dan `README-LAN.md`.
+Tekan `Ctrl+C` pada jendela Command Prompt yang menjalankan server. Panduan penggunaan LAN lengkap tersedia pada `README-LAN.md`.

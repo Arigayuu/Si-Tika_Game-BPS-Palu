@@ -11,19 +11,18 @@
 ## Cara menjalankan di komputer server Windows
 
 1. Buka Command Prompt pada folder project.
-2. Jalankan `npm run build` setelah ada perubahan pada source.
-3. Jalankan `start-lan.bat`.
-4. Biarkan jendela Command Prompt tetap terbuka selama acara.
-5. Jalankan `ipconfig`, lalu catat **IPv4 Address** adapter Wi-Fi yang aktif.
-6. Sambungkan HP ke Wi-Fi kantor yang sama.
-7. Buka `http://IPV4_KOMPUTER:4173`, misalnya `http://192.168.1.10:4173`.
-8. Hentikan server dengan `Ctrl+C`.
+2. Jalankan satu perintah berikut:
 
-Alternatif tanpa file batch:
+   ```bat
+   npm run dev
+   ```
 
-```bat
-npm run preview:lan
-```
+3. Vite akan langsung menampilkan alamat **Network** yang dapat dibuka dari HP dan laptop, misalnya `http://192.168.1.10:5173`.
+4. Sambungkan perangkat lain ke Wi-Fi kantor yang sama, lalu buka alamat Network tersebut.
+5. Biarkan Command Prompt tetap terbuka selama game digunakan.
+6. Hentikan server dengan `Ctrl+C`.
+
+Perintah `npm run dev` sudah dikonfigurasi menggunakan host `0.0.0.0`, sehingga tidak perlu lagi menjalankan `start-lan.bat`, melakukan build terlebih dahulu, atau mengetik alamat IP secara manual. Port default-nya adalah `5173`.
 
 ## Jika HP tidak dapat terhubung
 
