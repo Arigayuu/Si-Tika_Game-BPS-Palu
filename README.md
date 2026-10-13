@@ -28,7 +28,7 @@ Game dirancang untuk dijalankan dari satu komputer server di jaringan lokal kant
 4. Biarkan jendela Command Prompt tetap terbuka selama game digunakan.
 5. Setelah mengubah source code, simpan file dan browser akan memperbarui game otomatis melalui hot reload.
 
-Server menggunakan port TCP `5173` dan mendengarkan pada semua interface jaringan (`0.0.0.0`), sehingga dapat diakses perangkat lain pada Wi-Fi yang sama. Tidak perlu menjalankan `npm run build` atau `start-lan.bat` untuk penggunaan development di jaringan lokal.
+Server menggunakan port TCP `5173` dan mendengarkan pada semua interface jaringan (`0.0.0.0`), sehingga dapat diakses perangkat lain pada Wi-Fi yang sama. Tidak perlu menjalankan `npm run build` atau skrip tambahan untuk penggunaan development di jaringan lokal.
 
 ### Smartphone pemain
 
@@ -37,10 +37,10 @@ Server menggunakan port TCP `5173` dan mendengarkan pada semua interface jaringa
 3. Masukkan alamat berikut dengan mengganti `IPV4_KOMPUTER`:
 
    ```text
-   http://IPV4_KOMPUTER:4173
+   http://IPV4_KOMPUTER:5173
    ```
 
-   Contoh: `http://192.168.1.10:4173`
+   Contoh: `http://192.168.1.10:5173`
 
 Jangan menggunakan `localhost` dari smartphone karena alamat tersebut menunjuk ke smartphone itu sendiri.
 
@@ -48,8 +48,8 @@ Jangan menggunakan `localhost` dari smartphone karena alamat tersebut menunjuk k
 
 - Pastikan komputer dan smartphone berada pada SSID/VLAN yang sama.
 - Pastikan IPv4 yang digunakan adalah alamat Wi-Fi komputer, bukan `127.0.0.1` atau alamat IPv6.
-- Pastikan port `4173` tidak sedang digunakan aplikasi lain.
-- Jika diperlukan, minta petugas IT membuat aturan Windows Defender Firewall inbound **TCP 4173** dengan cakupan profil dan subnet kantor yang sesuai. Jangan mematikan seluruh firewall atau membuat port forwarding router.
+- Pastikan port `5173` tidak sedang digunakan aplikasi lain.
+- Jika diperlukan, minta petugas IT membuat aturan Windows Defender Firewall inbound **TCP 5173** dengan cakupan profil dan subnet kantor yang sesuai. Jangan mematikan seluruh firewall atau membuat port forwarding router.
 - Wi-Fi dengan client isolation, AP isolation, guest isolation, atau VLAN tertentu dapat memblokir komunikasi ant perangkat. Pembatasan tersebut harus ditangani administrator jaringan BPS.
 
 ## Pengujian multi-pengguna
